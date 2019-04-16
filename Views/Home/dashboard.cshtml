@@ -1,0 +1,24 @@
+@model dashboard_wrapper
+<h1>dotNet Flix</h1>
+<a href="/new">Movies!</a>
+<a href="/logout">Log out!</a>
+<hr>
+<h2>Stats</h2>
+<div class="form-group sm-3 border">
+    <p>Name: @Model.User.Firstname @Model.User.Lastname</p>
+    <p># of Watched Movies: @Model.Watched </p>
+    <p>Join Date: @Model.User.CreatedAt</p>
+</div>
+
+<div class="form-group">
+    @{
+        foreach(var x in Model.User.MoviesInHand)
+        {
+            <div>
+                <a href="/movies/@x.Movie.MovieId"> @x.Movie.Title </a>
+                <span>  </span>
+                <a href="/returnpage/@x.Movie.MovieId"> Return </a>
+            </div>
+        }
+    }
+</div>

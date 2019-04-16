@@ -1,0 +1,38 @@
+@model Display_movie_wrapper
+
+<h1>dotNet Flix</h1>
+<a href="/dashboard">Dashboard!</a>
+<a href="/new">Movies!</a>
+<a href="/logout">Log out!</a>
+<hr>
+<h2>@Model.OneMovie.Title</h2>
+<div>
+   <p>Genre: @Model.OneMovie.Genre</p> 
+   <br>
+   <p>Release: @Model.OneMovie.Released.ToString("MM/dd/yyyy")</p>
+   <br>
+    @if( @Model.Ave_rate==-1){
+        <p>Your Rating: This movie has not been rated yet!</p>
+    }
+    else{
+        <p>Average Customer Rating: @Model.Ave_rate </p>
+    }
+   <br>
+    @if( @Model.Your_rate==-1){
+       <p>Your Rating: You have not yet rated the movie !</p>
+    }
+    else{
+        <p>Your Rating:  @Model.Your_rate</p>
+    }
+</div>
+@if(@Model.OneMovie.check_person.Any(c=>c.UserId==@Model.Userid)){
+    <p>You already check out it </p>
+}
+else if(@Model.Number_of_MovieInHand<5){
+    <div class="form-group">
+        <button><a href="/checkout/@Model.OneMovie.MovieId">Checkout</a></button>
+    </div>
+}
+else{
+    <p>You can only check out at most 5 movies at a time</p>
+}

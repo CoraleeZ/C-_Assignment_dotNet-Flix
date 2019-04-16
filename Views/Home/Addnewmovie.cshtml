@@ -1,0 +1,20 @@
+@model Addnewmovie
+
+<h1>dotNet Flix</h1>
+<a href="/dashboard">Dashboard!</a>
+<a href="/new">Movies!</a>
+<a href="/logout">Log out!</a>
+<hr>
+<div>
+    <partial name="_AddNewMovie" model="@Model.Movie" />
+</div>
+<hr>
+<h2>Avaiable Movies</h2>
+@{
+    foreach(var x in @Model.AvaiableMovie)
+    {
+        <p>
+        <a href="movies/@x.MovieId">@x.Title</a>
+        </p>
+    }
+}

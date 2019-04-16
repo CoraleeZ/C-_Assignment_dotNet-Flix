@@ -1,0 +1,37 @@
+@model Movie
+
+
+<form asp-action="Process_NewMovie" asp-controller="Home" method="post">
+    <div class="form-group">
+    <div>
+    <span asp-validation-for="Title" style="color:red;"></span>
+    </div>
+    Title:<input type="text" asp-for="Title">
+    </div>
+
+    <div class="form-group">
+    <div>
+    <span asp-validation-for="Genre" style="color:red;"></span>
+    </div>
+    Genre:
+    <select asp-for="Genre">
+        <option value="" disable>Select Genre</option>
+        <option value="Drama">Drama</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Science Fiction">Science Fiction</option>
+        <option value="Romantic">Romantic</option>
+        <option value="Non-fiction">Non-fiction</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+    <div>
+    <span asp-validation-for="Released" style="color:red;"></span>
+    </div>
+    Released Date:<input type="text" asp-for="Released" placeholder="mm/dd/yyyy">
+    </div>
+
+    <div class="form-group">
+    <input type="submit" value="Add movie!">
+    </div>
+</form>

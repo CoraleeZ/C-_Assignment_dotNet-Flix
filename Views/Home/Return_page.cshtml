@@ -1,0 +1,24 @@
+@model int
+<h1>dotNet Flix</h1>
+<a href="/dashboard">Dashboard!</a>
+<a href="/new">Movies!</a>
+<a href="/logout">Log out!</a>
+<hr>
+<h2>Thanks for returning your movie!</h2>
+<h2>Please provide a rating for this film: </h2>
+<div>
+    <form action="/return/@Model"  method="post">
+    <div class="form-group">
+        <select name="rate">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+    </div>
+    <button>Return Movie</button>
+    </form>
+</div>
